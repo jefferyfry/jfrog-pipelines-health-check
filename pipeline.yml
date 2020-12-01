@@ -2,8 +2,8 @@ resources:
   - name: healthCheckRepo
     type: GitRepo
     configuration:
-      gitProvider: jefferyfryGithub
-      path: jefferyfry/jfrog-pipelines-health-check
+      gitProvider: JohnpGithub
+      path: peters95/jfrog-pipelines-health-check
 pipelines:
   - name: pipeline_health_check
     steps:
