@@ -1,0 +1,18 @@
+resources:
+  - name: pagerDutyCheckRepo
+    type: GitRepo
+    configuration:
+      gitProvider: JohnpGithub
+      path: peters95/jfrog-pipelines-health-check
+pipelines:
+  - name: pipeline_pagerduty_check
+    steps:
+      - name: pagerduty_check
+        type: Bash
+        configuration:
+          inputResources:
+            - name: pagerDutyCheckRepo
+        execution:
+          onExecute:
+            - local pagerDutyIntegrationName=$(get_integration_name --type "PagerDuty")
+            - send_notification "$pagerDutyIntegrationName" --routingkey "ac5ef440eaa1461a93c953bfaf59e8d2"
