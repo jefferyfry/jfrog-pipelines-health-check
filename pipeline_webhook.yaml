@@ -20,3 +20,5 @@ pipelines:
         jenkinsJobName: TestWebhook 
         integrations:
           - name: Jenkins
+        inputSteps:
+          - name: ExampleStep
