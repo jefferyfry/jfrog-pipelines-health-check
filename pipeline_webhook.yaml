@@ -19,5 +19,5 @@ pipelines:
       type: Jenkins
       configuration:
         jenkinsJobName: TestWebhook 
-          integrations:
-            - name: Jenkins
+        integrations:
+          - name: Jenkins
