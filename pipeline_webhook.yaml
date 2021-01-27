@@ -15,3 +15,9 @@ pipelines:
           onExecute:
             - echo "$res_MyIncomingWebhookResource_payload" | jq '.' > payload.json
             - read_json payload.json "LESSER_SECRET_FORMULA"
+    - name: ExampleJenkins
+      type: Jenkins
+      configuration:
+        jenkinsJobName: TestWebhook 
+          integrations:
+            - name: Jenkins
