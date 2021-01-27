@@ -13,8 +13,7 @@ pipelines:
           - name: MyIncomingWebhookResource
       execution:
           onExecute:
-            - echo "$res_MyIncomingWebhookResource_payload" | jq '.' > payload.json
-            - read_json payload.json "LESSER_SECRET_FORMULA"
+            - echo "Triggering jenkins"
     - name: ExampleJenkins
       type: Jenkins
       configuration:
