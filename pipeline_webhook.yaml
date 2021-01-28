@@ -3,11 +3,6 @@ resources:
     type: IncomingWebhook
     configuration:
       webhookName: JohnpIncomingWebhook
-  - name: JenkinsOutgoingWebhookResource
-    type: OutgoingWebhook
-    configuration:
-      webhookName: JenkinsTestWebhook
-      method: GET
 pipelines:
   - name: ExampleWebhookTriggerPipeline
     steps:
@@ -16,8 +11,14 @@ pipelines:
       configuration:
         inputResources:
           - name: MyIncomingWebhookResource
-        outputResources:
-          - name: JenkinsOutgoingWebhookResource
       execution:
           onExecute:
             - echo "Triggering jenkins"
+    - name: ExampleJenkins
+      type: Jenkins
+      configuration:
+        jenkinsJobName: TestWebhook 
+        integrations:
+          - name: Jenkins
+        inputSteps:
+          - name: ExampleStep
