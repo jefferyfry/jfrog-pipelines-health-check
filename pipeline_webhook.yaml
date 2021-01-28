@@ -8,7 +8,7 @@ resources:
     configuration:
       webhookName: JenkinsTestWebhook
       method: GET
-      path: "/job/TestWebhook/build"
+      path: job/TestWebhook/build
       parameters: "token=testwebhook"
 pipelines:
   - name: ExampleWebhookTriggerPipeline
