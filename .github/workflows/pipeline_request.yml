@@ -1,0 +1,17 @@
+on:
+  pull_request:
+    branches:
+      - master
+    types: [opened, reopened]
+name: Pull Request Automation
+jobs:
+  deployment:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Deploy Stage
+      uses: fjogeleit/http-request-action@master
+      with:
+        url: 'https://partnership-pipelines-api.jfrog.io/v1/projectIntegrations/114/hook'
+        method: 'POST'
+        username: ${{ secrets.PARTNERSHIP_USER }}
+        password: ${{ secrets.PARTNERSHIP_API_KEY }}
